@@ -9,7 +9,9 @@ import { Weather } from './weather.model';
 export class WeatherListComponent implements OnInit {
 
   weathers: Weather[] = [
-    new Weather('Taipei', 'Sunny', 'It is looking good out there!')
+    new Weather('Taipei', 'Sunny', 'It is looking good out there!'),
+    new Weather('SLC', 'Snowing', 'Be careful drinving, please drive safe'),
+    new Weather('London', 'Cloudy', 'Today is cloudy, expecting some suns tomorrow')
   ];
   constructor() { }
 
