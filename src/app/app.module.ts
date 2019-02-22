@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { AddWeatherComponent } from './add-weather/add-weather.component';
+import { WeatherService } from './weather.service';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { AddWeatherComponent } from './add-weather/add-weather.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

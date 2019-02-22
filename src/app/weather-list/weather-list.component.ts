@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Weather } from './weather.model';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-weather-list',
@@ -8,14 +9,17 @@ import { Weather } from './weather.model';
 })
 export class WeatherListComponent implements OnInit {
 
-  weathers: Weather[] = [
-    new Weather('Taipei', 'Sunny', 'It is looking good out there!'),
-    new Weather('SLC', 'Snowing', 'Be careful drinving, please drive safe'),
-    new Weather('London', 'Cloudy', 'Today is cloudy, expecting some suns tomorrow')
-  ];
-  constructor() { }
+  weathers: Weather[];
+
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
+    this.weathers = this.weatherService.getWeathers();
+    this.weatherService.newWeatherAdded.subscribe(
+      (weathers: Weather[]) =>{
+        this.weathers = weathers;
+      }
+    );
   }
 
 }
