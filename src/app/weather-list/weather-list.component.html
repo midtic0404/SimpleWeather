@@ -1,15 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
         <ul class="list-group">
-          <li *ngFor="let weather of weathers" class="list-group-item clearfix" >
-            <div class="pull-left">
-              <h3 class="list-group-item-heading">{{weather.cityName}}</h3>
-              <p>{{weather.weatherDescription}}</p>
-            </div>
-            <div class="pull-right">
-              <h4>{{ weather.weatherMainStatus }}</h4>
-            </div>
-          </li>
+          <app-weather-item [weather]= "weather" *ngFor="let weather of weathers"></app-weather-item>
         </ul>
     </div>
 </div>

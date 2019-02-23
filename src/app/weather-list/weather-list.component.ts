@@ -22,4 +22,5 @@ export class WeatherListComponent implements OnInit {
     );
   }
 
+
 }

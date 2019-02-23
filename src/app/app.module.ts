@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { AddWeatherComponent } from './add-weather/add-weather.component';
 import { WeatherService } from './weather.service';
+import { WeatherItemComponent } from './weather-list/weather-item/weather-item.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { WeatherService } from './weather.service';
     AppComponent,
     HeaderComponent,
     WeatherListComponent,
-    AddWeatherComponent
+    AddWeatherComponent,
+    WeatherItemComponent
   ],
   imports: [
     BrowserModule
