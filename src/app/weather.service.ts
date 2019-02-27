@@ -18,7 +18,7 @@ export class WeatherService {
     return this.weathers.slice();
   }
 
-  addNewWeather(cityName: string){
+  addNewWeather(cityName: string) {
     this.weathers.push(
       new Weather(cityName, 'Test Status', 'Test description here')
     );

@@ -16,7 +16,7 @@ export class WeatherListComponent implements OnInit {
   ngOnInit() {
     this.weathers = this.weatherService.getWeathers();
     this.weatherService.newWeatherAdded.subscribe(
-      (weathers: Weather[]) =>{
+      (weathers: Weather[]) => {
         this.weathers = weathers;
       }
     );

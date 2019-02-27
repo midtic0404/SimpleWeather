@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-weather.component.css']
 })
 export class AddWeatherComponent implements OnInit {
-  @ViewChild('cityNameInput') cityNameRef : ElementRef;
+  @ViewChild('cityNameInput') cityNameRef: ElementRef;
   constructor(private weatherService: WeatherService,
               private router: Router) { }
 
   ngOnInit() {
   }
 
-  onAddWeather(){
+  onAddWeather() {
     const newCityName = this.cityNameRef.nativeElement.value;
-    if(newCityName){
+    if (newCityName) {
       this.weatherService.addNewWeather(newCityName);
       this.cityNameRef.nativeElement.value = '';
       this.router.navigate(['/weathers']);

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   selectedMenu = 'list';
 
-  onNavigate(menu: string){
+  onNavigate(menu: string) {
     this.selectedMenu = menu;
   }
 
