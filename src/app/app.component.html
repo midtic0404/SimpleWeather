@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <app-header (menuSelected)="onNavigate($event)"></app-header>
+      <app-header></app-header>
       <br>
-      <app-add-weather *ngIf="selectedMenu !== 'list'"></app-add-weather>
-      <app-weather-list *ngIf="selectedMenu === 'list'"></app-weather-list>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

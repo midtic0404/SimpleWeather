@@ -1,4 +1,4 @@
 <ul class="nav nav-tabs">
-    <li><a href="#" (click)="onMenuSelect('list')">Weather List</a></li>
-    <li><a href="#" (click)="onMenuSelect('add')">Add New Weather</a></li>
+    <li><a [routerLink]="['/weathers']" routerLinkActive="active">Weather List</a></li>
+    <li><a [routerLink]="['/add']" routerLinkActive="active">Add New Weather</a></li>
 </ul>
