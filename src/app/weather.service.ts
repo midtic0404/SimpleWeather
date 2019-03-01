@@ -3,7 +3,6 @@ import { Weather } from './weather-list/weather.model';
 
 @Injectable()
 export class WeatherService {
-
   newWeatherAdded = new EventEmitter<Weather[]>();
 
   weathers: Weather[] = [
@@ -18,11 +17,8 @@ export class WeatherService {
     return this.weathers.slice();
   }
 
-  addNewWeather(cityName: string) {
-    this.weathers.push(
-      new Weather(cityName, 'Test Status', 'Test description here')
-    );
-
+  addNewWeather(newWeather: Weather) {
+    this.weathers.push(newWeather);
     this.newWeatherAdded.emit(this.weathers.slice());
   }
 
