@@ -1,9 +1,10 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Weather } from './weather-list/weather.model';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class WeatherService {
-  newWeatherAdded = new EventEmitter<Weather[]>();
+  newWeatherAdded = new Subject<Weather[]>();
 
   weathers: Weather[] = [
     new Weather('Taipei', 'Sunny', 'It is looking good out there!'),
@@ -19,7 +20,7 @@ export class WeatherService {
 
   addNewWeather(newWeather: Weather) {
     this.weathers.push(newWeather);
-    this.newWeatherAdded.emit(this.weathers.slice());
+    this.newWeatherAdded.next(this.weathers.slice());
   }
 
 }
