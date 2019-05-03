@@ -3,6 +3,7 @@ import { WeatherService } from '../weather.service';
 import { Router } from '@angular/router';
 import { Weather } from '../weather-list/weather.model';
 import { NgForm } from '@angular/forms';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-add-weather',
@@ -19,10 +20,21 @@ export class AddWeatherComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const newCityName = form.value.cityName;
-    const newWeather = new Weather(newCityName, 'Test Status', 'This is a test description');
-    this.weatherService.addNewWeather(newWeather);
-    form.reset();
-    this.router.navigate(['/weathers']);
+    this.weatherService.getNewWeatherData(newCityName)
+      .subscribe(
+        (response: Response) => {
+          const data = response.json();
+          const weatherDesc = data.weather[0].description
+          const newWeather = new Weather(newCityName, weatherDesc)
+          this.weatherService.addNewWeather(newWeather);
+          form.reset();
+          this.router.navigate(['/weathers']);
+        }
+      )
   }
 
 }
+
+
+
+

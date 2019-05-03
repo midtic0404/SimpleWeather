@@ -1,21 +1,26 @@
 import { Injectable} from '@angular/core';
+
 import { Weather } from './weather-list/weather.model';
 import { Subject } from 'rxjs/Subject';
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class WeatherService {
   newWeatherAdded = new Subject<Weather[]>();
 
   weathers: Weather[] = [
-    new Weather('Taipei', 'Sunny', 'It is looking good out there!'),
-    new Weather('SLC', 'Snowing', 'Be careful drinving, please drive safe'),
-    new Weather('London', 'Cloudy', 'Today is cloudy, expecting some suns tomorrow')
+    
   ];
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   getWeathers() {
     return this.weathers.slice();
+  }
+
+  getNewWeatherData(newCityName: string) {
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${newCityName}&appid=7949b0e330b90aaf80502f5edff4e2d4`;
+    return this.http.get(url);   
   }
 
   addNewWeather(newWeather: Weather) {
