@@ -22,10 +22,9 @@ export class AddWeatherComponent implements OnInit {
     const newCityName = form.value.cityName;
     this.weatherService.getNewWeatherData(newCityName)
       .subscribe(
-        (response: Response) => {
-          const data = response.json();
-          const weatherDesc = data.weather[0].description
-          const newWeather = new Weather(newCityName, weatherDesc)
+        (data) => {
+          const weatherDesc = data['weather'][0].description;
+          const newWeather = new Weather(newCityName, weatherDesc);
           this.weatherService.addNewWeather(newWeather);
           form.reset();
           this.router.navigate(['/weathers']);

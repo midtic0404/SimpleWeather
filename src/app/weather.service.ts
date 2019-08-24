@@ -2,17 +2,15 @@ import { Injectable} from '@angular/core';
 
 import { Weather } from './weather-list/weather.model';
 import { Subject } from 'rxjs/Subject';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class WeatherService {
   newWeatherAdded = new Subject<Weather[]>();
 
-  weathers: Weather[] = [
-    
-  ];
+  weathers: Weather[] = [];
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getWeathers() {
     return this.weathers.slice();
@@ -20,7 +18,7 @@ export class WeatherService {
 
   getNewWeatherData(newCityName: string) {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${newCityName}&appid=7949b0e330b90aaf80502f5edff4e2d4`;
-    return this.http.get(url);   
+    return this.http.get(url);
   }
 
   addNewWeather(newWeather: Weather) {
