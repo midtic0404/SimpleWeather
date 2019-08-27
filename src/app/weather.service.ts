@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 import { Weather } from './weather-list/weather.model';
 import { Subject } from 'rxjs/Subject';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class WeatherService {
@@ -17,7 +18,7 @@ export class WeatherService {
   }
 
   getNewWeatherData(newCityName: string) {
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${newCityName}&appid=7949b0e330b90aaf80502f5edff4e2d4`;
+    const url = `//api.openweathermap.org/data/2.5/weather?q=${newCityName}&appid=`+ environment.weatherApiKey;
     return this.http.get(url);
   }
 

@@ -1,13 +1,14 @@
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-12">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="row">
                 <div class="form-group col-xs-12">
-                    <label for="cityName">City Name</label>
+                    <label for="cityName">Enter A City Name:</label>
                      <input type="text"
                      id="cityName"
                      name="cityName"
                      class="form-control"
+                     placeholder="Ex. London, Tokyo"
                      ngModel
                      required
                      >
