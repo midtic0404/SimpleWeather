@@ -1,4 +1,6 @@
 .list-group-item {
-  box-shadow: 3px 3px 10px #ccc;
+  border-color: transparent;
+  background-color: rgba(83, 81, 81, 0.3);
   margin: 20px auto;
+  color: white;
 }

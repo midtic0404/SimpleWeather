@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row ">
     <div class="col-xs-12">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <form class="weatherForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="row">
                 <div class="form-group col-xs-12">
                     <label for="cityName">Enter A City Name:</label>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <button
-            class="btn btn-primary"
+            class="btn"
             type="submit"
             [disabled]="!f.valid"
             >Add Weather</button>
