@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
         <ul class="list-group">
-          <app-weather-item [weather]= "weather" *ngFor="let weather of weathers"></app-weather-item>
+          <app-weather-item [weather]= "weather" *ngFor="let weather of weathers.reverse()"></app-weather-item>
         </ul>
     </div>
 </div>

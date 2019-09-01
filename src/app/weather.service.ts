@@ -13,10 +13,6 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeathers() {
-    return this.weathers.slice();
-  }
-
   getNewWeatherData(newCityName: string) {
     const url = `//api.openweathermap.org/data/2.5/weather?q=${newCityName}&appid=`+ environment.weatherApiKey;
     return this.http.get(url);
@@ -24,7 +20,7 @@ export class WeatherService {
 
   addNewWeather(newWeather: Weather) {
     this.weathers.push(newWeather);
-    this.newWeatherAdded.next(this.weathers.slice());
+    this.newWeatherAdded.next([...this.weathers]);
   }
 
 }
