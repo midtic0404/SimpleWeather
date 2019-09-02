@@ -9,7 +9,6 @@ import { WeatherListComponent } from './weather-list/weather-list.component';
 import { AddWeatherComponent } from './add-weather/add-weather.component';
 import { WeatherService } from './weather.service';
 import { WeatherItemComponent } from './weather-list/weather-item/weather-item.component';
-import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -22,7 +21,6 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule
   ],
   providers: [WeatherService],

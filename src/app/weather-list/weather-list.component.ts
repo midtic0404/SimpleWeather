@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class WeatherListComponent implements OnInit, OnDestroy {
   listSubscription: Subscription;
 
-  weathers: Weather[];
+  weathers: Weather[] = [];
 
   constructor(private weatherService: WeatherService) { }
 

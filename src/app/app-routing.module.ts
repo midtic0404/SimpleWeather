@@ -4,9 +4,7 @@ import { WeatherListComponent } from './weather-list/weather-list.component';
 import { AddWeatherComponent } from './add-weather/add-weather.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/add' },
-  { path: 'weathers', component: WeatherListComponent },
-  { path: 'add', component: AddWeatherComponent }
+
 ];
 
 @NgModule({
