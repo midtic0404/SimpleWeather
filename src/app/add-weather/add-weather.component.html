@@ -19,7 +19,7 @@
             type="submit"
             [disabled]="!f.valid"
             >Add Weather</button>
-            <span class="errorMessage" *ngIf="haveError"><em>Oops! {{ errorCityName }} is not a valid name!</em></span>
+            <span class="errorMessage" *ngIf="haveError"><em>{{errorMessage}}</em></span>
         </form>
     </div>
 </div>

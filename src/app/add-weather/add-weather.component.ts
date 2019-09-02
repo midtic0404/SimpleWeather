@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class AddWeatherComponent implements OnInit {
 
   haveError = false;
-  errorCityName = '';
+  errorMessage = '';
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
@@ -19,6 +19,12 @@ export class AddWeatherComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const newCityName = form.value.cityName;
+    if(this.weatherService.nameIsDuplicated(newCityName)){
+      this.haveError = true;
+      this.errorMessage = `Sorry! ${newCityName} is already in the list!`;
+      form.reset();
+      return;
+    }
     this.weatherService.getNewWeatherData(newCityName)
       .subscribe(
         (data) => {
@@ -26,14 +32,13 @@ export class AddWeatherComponent implements OnInit {
           const weatherDesc = data['weather'][0].description;
           const newWeather = new Weather(newCityName, weatherDesc);
           this.weatherService.addNewWeather(newWeather);
-          form.reset();
         },
         () => {
           this.haveError = true;
-          this.errorCityName = newCityName;
-          form.reset();
+          this.errorMessage = `Oops! ${newCityName} is not a valid name!`;
         }
       )
+    form.reset();
   }
 
 }
