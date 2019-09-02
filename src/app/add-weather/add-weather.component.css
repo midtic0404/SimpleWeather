@@ -10,3 +10,8 @@ button {
   background-color: white;
   color: black;
 }
+
+.errorMessage {
+  color: rgb(255, 166, 0);
+}
+

@@ -9,7 +9,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-weather.component.css']
 })
 export class AddWeatherComponent implements OnInit {
-  @ViewChild('f') weatherForm: NgForm;
+
+  haveError = false;
+  errorCityName = '';
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
@@ -20,9 +22,15 @@ export class AddWeatherComponent implements OnInit {
     this.weatherService.getNewWeatherData(newCityName)
       .subscribe(
         (data) => {
+          this.haveError = false;
           const weatherDesc = data['weather'][0].description;
           const newWeather = new Weather(newCityName, weatherDesc);
           this.weatherService.addNewWeather(newWeather);
+          form.reset();
+        },
+        () => {
+          this.haveError = true;
+          this.errorCityName = newCityName;
           form.reset();
         }
       )
