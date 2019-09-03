@@ -4,7 +4,7 @@
           <em>*Please Enter A City Name</em>
         </h4>
         <ul class="list-group" *ngIf="weathers.length > 0">
-          <app-weather-item [weather]= "weather" *ngFor="let weather of weathers.reverse()"></app-weather-item>
+          <app-weather-item [weather]= "weather" *ngFor="let weather of weathers | reverse"></app-weather-item>
         </ul>
     </div>
 </div>

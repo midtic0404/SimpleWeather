@@ -9,6 +9,7 @@ import { WeatherListComponent } from './weather-list/weather-list.component';
 import { AddWeatherComponent } from './add-weather/add-weather.component';
 import { WeatherService } from './weather.service';
 import { WeatherItemComponent } from './weather-list/weather-item/weather-item.component';
+import { ReversePipe } from './reverse.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { WeatherItemComponent } from './weather-list/weather-item/weather-item.c
     AppComponent,
     WeatherListComponent,
     AddWeatherComponent,
-    WeatherItemComponent
+    WeatherItemComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
