@@ -16,7 +16,7 @@ export class WeatherListComponent implements OnInit, OnDestroy {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.listSubscription  = this.weatherService.newWeatherAdded.subscribe(
+    this.listSubscription  = this.weatherService.newWeathers.subscribe(
       (weathers: Weather[]) => {
         this.weathers = weathers;
       }

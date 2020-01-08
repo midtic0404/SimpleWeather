@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 
 @Injectable()
 export class WeatherService {
-  newWeatherAdded = new Subject<Weather[]>();
+  newWeathers = new Subject<Weather[]>();
   weathers: Weather[] = [];
   constructor(private http: HttpClient) { }
 
@@ -24,7 +24,15 @@ export class WeatherService {
 
   addNewWeather(newWeather: Weather) {
     this.weathers.push(newWeather);
-    this.newWeatherAdded.next([...this.weathers]);
+    this.newWeathers.next([...this.weathers]);
+  }
+
+  removeWeather(name: string) {
+    this.weathers = this.weathers.filter((weather) => {
+      return weather.cityName !== name;
+    });
+
+    this.newWeathers.next([...this.weathers]);
   }
 
 }

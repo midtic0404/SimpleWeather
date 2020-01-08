@@ -6,7 +6,6 @@
   animation: itemFadeIn .4s ease-out;
 }
 
-
 @keyframes itemFadeIn {
   0% {
     transform: translateX(-20px);
