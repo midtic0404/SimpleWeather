@@ -1,0 +1,17 @@
+.weatherForm{
+  padding: 30px;
+  background-color: rgba(83, 81, 81, 0.3);
+  border-radius: 15px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+button {
+  background-color: white;
+  color: black;
+}
+
+.errorMessage {
+  color: rgb(255, 166, 0);
+}
+
